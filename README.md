@@ -20,7 +20,7 @@
 
 > 基于ThinkPHP 6开发
 
-> 运行环境要求PHP7.1+。
+> 运行环境要求PHP7.1+
 
 >数据库文件为mail.sql
 
@@ -55,4 +55,21 @@ admin|123456
 # 感谢
 [@c1y2m3](https://github.com/c1y2m3) 分享的思路
 
+# 更新
+
+2020.10.3
+修改了`public`目录下的`.htaccess`文件内容为
+
+```
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.*)$ index.php [L,E=PATH_INFO:$1]
+</IfModule>
+```
+以及修改链接生成结果为
+```
+http://tp6.com/Info/index/任意文件名.jpg?random=123456&mail=123456@qq.com
+```
 
