@@ -2,6 +2,8 @@
 
 邮箱探针后台管理系统
 
+# 有师傅反馈有的邮箱带图片地址合法性校验可能需要jpg后缀，已经解决，更新内容在最下方
+
 # 后台登录
 
 ![](https://raw.githubusercontent.com/r00tSe7en/Mail-Probe/master/tz0.png)
