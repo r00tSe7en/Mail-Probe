@@ -22,7 +22,7 @@
 
 > 基于ThinkPHP 6开发
 
-> 运行环境要求PHP7.1+
+> 运行环境要求Apache和PHP7.1+
 
 >数据库文件为mail.sql
 
