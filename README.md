@@ -2,8 +2,32 @@
 
 邮箱探针后台管理系统
 
-# 有师傅反馈有的邮箱带图片地址合法性校验可能需要jpg后缀，已经解决，更新内容在最下方
+# 更新
 
+2020.10.3
+
+修改了`public`目录下的`.htaccess`文件内容为
+
+```
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.*)$ index.php [L,E=PATH_INFO:$1]
+</IfModule>
+```
+
+以及修改链接生成结果为
+
+```
+http://tp6.com/Info/index/随机6位数.jpg?random=随机6位数&mail=123456@qq.com
+```
+
+2020.11.20
+
+```
+处理了Linux下视图文件找不到的问题，各种大小写bug修复，win&linux全平台已适用
+```
 # 后台登录
 
 ![](https://raw.githubusercontent.com/r00tSe7en/Mail-Probe/master/tz0.png)
@@ -57,26 +81,3 @@ admin|123456
 # 感谢
 [@c1y2m3](https://github.com/c1y2m3) 分享的思路
 
-# 更新
-
-2020.10.3
-
-修改了`public`目录下的`.htaccess`文件内容为
-
-```
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule ^(.*)$ index.php [L,E=PATH_INFO:$1]
-</IfModule>
-```
-
-以及修改链接生成结果为
-
-```
-http://tp6.com/Info/index/随机6位数.jpg?random=随机6位数&mail=123456@qq.com
-```
-2020.11.20
-
-处理了Linux下视图文件找不到的问题，各种大小写bug修复，win&linux全平台已适用
