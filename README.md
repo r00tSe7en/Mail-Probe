@@ -79,6 +79,4 @@ http://tp6.com/Info/index/随机6位数.jpg?random=随机6位数&mail=123456@qq.
 ```
 2020.11.20
 
-处理了Linux下视图文件找不到的问题（修改view模块下文件夹首字母为小写,规范了控制器大小写问题）
-
-待解决：Linux下探针链接访问提示 `Class 'think\Response\Image' not found`
+处理了Linux下视图文件找不到的问题，各种大小写bug修复，win&linux全平台已适用
