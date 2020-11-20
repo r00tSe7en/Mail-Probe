@@ -60,6 +60,7 @@ admin|123456
 # 更新
 
 2020.10.3
+
 修改了`public`目录下的`.htaccess`文件内容为
 
 ```
@@ -70,11 +71,14 @@ admin|123456
   RewriteRule ^(.*)$ index.php [L,E=PATH_INFO:$1]
 </IfModule>
 ```
+
 以及修改链接生成结果为
+
 ```
 http://tp6.com/Info/index/随机6位数.jpg?random=随机6位数&mail=123456@qq.com
 ```
 2020.11.20
 
-处理了Linux下视图文件找不到的问题（修改view模块下文件夹首字母为小写）
+处理了Linux下视图文件找不到的问题（修改view模块下文件夹首字母为小写,规范了控制器大小写问题）
+
 待解决：Linux下探针链接访问提示 `Class 'think\Response\Image' not found`
