@@ -1,0 +1,16 @@
+<div class="menu" id="menu">
+    <div class="layui-collapse" lay-accordion>
+        {foreach $left as $left_v}
+            <div class="layui-colla-item">
+                <h2 class="layui-colla-title">{$left_v.title}</h2>
+                <div class="layui-colla-content layui-show">
+                    <ul class="layui-nav layui-nav-tree">
+                        {foreach $left_v['lists'] as $lists_v}
+                            <li class="layui-nav-item"><a href="javascript:window.location.href='/{$lists_v.controller}'">{$lists_v.title}</a></li>
+                        {/foreach}
+                    </ul>
+                </div>
+            </div>
+        {/foreach}
+    </div>
+</div>

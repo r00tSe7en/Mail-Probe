@@ -1,0 +1,41 @@
+{include file="public/head" /}
+{include file="public/left" /}
+<div class="main" style="padding:10px;">
+    <div class="content">
+        <span>探针链接生成器</span>
+        <div></div>
+    </div>
+    <div class="main2" style="padding:10px;">
+        <h1>目标邮箱</h1>
+        <div class="main3" style="padding:10px;">
+            <textarea id="a" required lay-verify="required" placeholder="请输入" class="layui-textarea"></textarea>
+        </div>
+        <h1>探针链接</h1>
+        <div class="main4" style="padding:10px;">
+            <textarea id="b" required lay-verify="required" placeholder="......" class="layui-textarea" style="height: 300px"></textarea>
+        </div>
+        <button type="button" class="layui-btn layui-btn-fluid" onclick="getUrl()">给我转</button>
+    </div>
+</div>
+<script>
+    function getUrl(){
+        //获取当前完整域名
+        var url = window.location.protocol+"//"+window.location.host;
+        //根据 id=”a“ 中邮箱地址，如：123456@qq.com
+        var tempmail = document.getElementById('a').value.split('\n')
+        var Tanzhen = ''
+        for (var j = 0; j < tempmail.length; j++) {
+            //生成六位随机数
+            var code = "";
+    　　    for(var i=0;i<6;i++){
+                var radom = Math.floor(Math.random()*10);
+                code += radom;
+    　　    }
+            //生成链接：
+            Tanzhen += url+'/Info/index/'+code+'.jpg?random='+code+'&mail='+tempmail[j] + '\n'
+        }
+        //打印到id="b"中
+        document.getElementById('b').value = Tanzhen
+}
+</script>
+{include file="public/bottom" /}

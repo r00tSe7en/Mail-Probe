@@ -1,0 +1,68 @@
+{include file="public/head" /}
+{include file="public/left" /}
+<div class="main" style="padding:10px;">
+    <div class="content">
+        <span>邮件探针列表</span>
+        <div></div>
+    </div>
+    <table class="layui-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>随机码</th>
+                <th>邮件地址</th>
+                <th>出口IP</th>
+                <th>浏览器UA</th>
+                <th>添加时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {volist name="right" id="right_v"}
+                <tr>
+                    <td>{$right_v.id}</td>
+                    <td>{$right_v.random}</td>
+                    <td>{$right_v.mail}</td>
+                    <td>{$right_v.ip}</td>
+                    <td>{$right_v.agent}</td>
+                    <td>{$right_v.add_time}</td>
+                    <td>
+                        <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="del({$right_v.id})">删除</button>
+                    </td>
+                </tr>
+            {/volist}
+        </tbody>
+    </table>
+    <div class="layui-box layui-laypage layui-laypage-default">
+        <a href="/index.php/Index/index?p={$p-1}" class="layui-laypage-prev {if $p<=1}layui-disabled{/if}">上一页</a>
+        {for start="0" end="$count"}
+            {if $p == $i+1}
+                <span class="layui-laypage-curr">
+                    <em class="layui-laypage-em"></em>
+                    <em>{$i+1}</em>
+                </span>
+            {else/}
+                <a href="/index.php/Index/index?p={$i+1}">{$i+1}</a>
+            {/if}
+        {/for}
+        <a href="/index.php/Index/index?p={$p+1}" class="layui-laypage-next {if $p>=$count}layui-disabled{/if}">下一页</a>
+    </div>
+</div>
+<script type="text/javascript">
+    function del(id){
+        layer.confirm('确定要删除吗？', {
+            icon:3,
+            btn: ['确定','取消']
+        }, function(){
+            $.post('/index.php/Index/del',{'id':id},function(res){
+                if(res.code>0){
+                    layer.alert(res.msg,{icon:2});
+                }else{
+                    layer.msg(res.msg);
+                    setTimeout(function(){window.location.reload();},1000);
+                }
+            },'json');
+        });
+    }
+</script>
+{include file="public/bottom" /}

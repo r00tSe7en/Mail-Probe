@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{$title}后台管理系统</title>
+    <link rel="stylesheet" type="text/css" href="/static/layui/css/layui.css">
+    <script type="text/javascript" src="/static/layui/layui.js"></script>
+    <style type="text/css">
+        .header{width:100%;height: 50px;line-height: 50px;background: #2e6da4;color:#ffffff;}
+        .title{margin-left: 20px;font-size: 20px;}
+        .userinfo{float: right;margin-right: 10px;}
+        .userinfo a{color:#ffffff;}
+        .menu{width: 200px;background:#333744;position:absolute;}
+        .main{position: absolute;left:200px;right:0px;}
+
+        .layui-collapse{border:none;}
+        .layui-colla-item{border-top:none;}
+        .layui-colla-title{background:#42485b;color:#ffffff;}
+        .layui-colla-content{border-top:none;padding:0px;}
+
+        .content span{background: #009688;margin-left: 30px;padding: 10px;color:#ffffff;}
+        .content div{border-bottom: solid 2px #009688;margin-top: 8px;}
+        .content button{float: right;margin-top: -5px;}
+
+        .pagination {
+            display: inline-block;
+            padding-left: 0;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .pagination > li {
+            display: inline;
+        }
+        .pagination > li > a,
+        .pagination > li > span {
+            position: relative;
+            float: left;
+            padding: 6px 12px;
+            margin-left: -1px;
+            line-height: 1.42857143;
+            color: #337ab7;
+            text-decoration: none;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+        .pagination > li:first-child > a,
+        .pagination > li:first-child > span {
+            margin-left: 0;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+        .pagination > li:last-child > a,
+        .pagination > li:last-child > span {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+        .pagination > li > a:hover,
+        .pagination > li > span:hover,
+        .pagination > li > a:focus,
+        .pagination > li > span:focus {
+            z-index: 2;
+            color: #23527c;
+            background-color: #eee;
+            border-color: #ddd;
+        }
+        .pagination > .active > a,
+        .pagination > .active > span,
+        .pagination > .active > a:hover,
+        .pagination > .active > span:hover,
+        .pagination > .active > a:focus,
+        .pagination > .active > span:focus {
+            z-index: 3;
+            color: #fff;
+            cursor: default;
+            background-color: #337ab7;
+            border-color: #337ab7;
+        }
+        .pagination > .disabled > span,
+        .pagination > .disabled > span:hover,
+        .pagination > .disabled > span:focus,
+        .pagination > .disabled > a,
+        .pagination > .disabled > a:hover,
+        .pagination > .disabled > a:focus {
+            color: #777;
+            cursor: not-allowed;
+            background-color: #fff;
+            border-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <span class="title"><span style="font-size: 20px;">{$title}</span>后台管理系统</span>
+        <span class="userinfo">用户 [{$login}] <span><button class="layui-btn layui-btn-sm" onclick="js_exit()">注销</button></span></span>
+        <script>
+        function js_exit(){
+            layer.confirm('确定要注销吗？', {icon: 3, title:'提示'}, function(index){
+                //do something
+                $.get("/index.php/Index/logout/?id=1", function(res){
+                    alert("注销成功");
+                    location.reload();
+            });
+            layer.close(index);
+            });
+        }
+        </script>
+    </div>
