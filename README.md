@@ -1,5 +1,6 @@
 # Mail-Probe
 
+# 注意！！！
 git提交的有丢失部分代码，暂未处理，使用请下载此commit下的压缩包：
 
 https://github.com/r00tSe7en/Mail-Probe/tree/6980256c76b78be1bef87a1136d038b51291a099
