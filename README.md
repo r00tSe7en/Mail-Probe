@@ -1,6 +1,6 @@
 # Mail-Probe
 
-邮箱探针后台管理系统
+![Mail-Probe](https://socialify.git.ci/r00tSe7en/Mail-Probe/image?description=1&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Floating%20Cogs&pulls=1&stargazers=1&theme=Dark)
 
 # 更新
 
